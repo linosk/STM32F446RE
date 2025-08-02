@@ -1,0 +1,105 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/testo.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "device": "STM32F446RE",
+            // "runToEntryPoint": "main",
+            "breakAfterReset": true,
+            "servertype": "openocd",
+            "serverpath": "C:/OpenOCD/OpenOCD-20250710-0.12.0/bin/openocd.exe",
+            "gdbPath": "C:/gcc-arm-none-eabi/arm-gnu-toolchain-14.3.rel1-mingw-w64-x86_64-arm-none-eabi/bin/arm-none-eabi-gdb.exe",
+            "configFiles": [
+              "interface/stlink.cfg",
+              "target/stm32f4x.cfg"
+            ],
+            "showDevDebugOutput": "raw"
+            //MSYS can be integrated https://www.youtube.com/watch?v=-p26X8lTAvo&t=340s
+        }
+    ]
+}
+
+//https://www.st.com/resource/en/datasheet/stm32f446re.pdf
+
+      // {
+      //       "name": "Cortex Debug",
+      //       "cwd": "${workspaceFolder}",
+      //       "executable": "${workspaceFolder}/Debug/testo.elf",
+      //       "request": "launch",
+      //       "type": "cortex-debug",
+      //       "device": "STM32F446RE",
+      //       // "runToEntryPoint": "main",
+      //       "servertype": "openocd",
+      //       "serverpath": "C:/OpenOCD/OpenOCD-20250710-0.12.0/bin/openocd.exe",
+      //       "gdbPath": "C:/gcc-arm-none-eabi/arm-gnu-toolchain-14.3.rel1-mingw-w64-x86_64-arm-none-eabi/bin/arm-none-eabi-gdb.exe",
+      //       // "gdbPath": "C:/msys64/usr/bin/gdb-multiarch",
+      //       // "gdbArgs": ["--nx"],
+      //       // "objdumpPath": "C:/msys64/usr/bin/objdump.exe",
+      //       // "nmPath": "C:/msys64/usr/bin/nm.exe",
+      //       "configFiles": [
+      //         "interface/stlink.cfg",
+      //         "target/stm32f4x.cfg"
+      //       ],
+      //       // "preLaunchCommands": [
+      //       //     "monitor program ${workspaceFolder}/myprogram.elf verify reset"
+      //       // ],
+      //       // "internalConsoleOptions": "neverOpen",
+      //       "showDevDebugOutput": "raw"
+      //   }
+
+                // {
+//   "type": "cortex-debug",
+//   "request": "launch",
+//   "name": "Debug STM32",
+//   "executable": "${workspaceFolder}/Debug/testo.elf",
+//   "servertype": "openocd",
+//   "cwd": "${workspaceFolder}",
+//   "gdbPath": "C:/gcc-arm-none-eabi/arm-gnu-toolchain-14.3.rel1-mingw-w64-x86_64-arm-none-eabi/bin/arm-none-eabi-gdb.exe",
+//   "gdbArgs": ["--nx"],
+//   "configFiles": [
+//     "interface/stlink.cfg",
+//     "target/stm32f4x.cfg"
+//   ],
+//   "showDevDebugOutput": "raw"
+// }
+
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "name": "Cortex Debug",
+//             "cwd": "${workspaceFolder}",
+//             "executable": "${workspaceFolder}/Debug/testo.elf",
+//             "request": "launch",
+//             "type": "cortex-debug",
+//             "device": "STM32F446RE",
+//             "runToEntryPoint": "main",
+//             "servertype": "openocd",
+//             "serverpath": "C:/OpenOCD/OpenOCD-20250710-0.12.0/bin/openocd.exe",
+//             "gdbPath": "C:/gcc-arm-none-eabi/arm-gnu-toolchain-14.3.rel1-mingw-w64-x86_64-arm-none-eabi/bin/arm-none-eabi-gdb.exe",
+//             // "gdbPath": "C:/msys64/usr/bin/gdb-multiarch",
+//             // "gdbArgs": ["--nx"],
+//             // "objdumpPath": "C:/msys64/usr/bin/objdump.exe",
+//             // "nmPath": "C:/msys64/usr/bin/nm.exe",
+//             "configFiles": [
+//               "interface/stlink.cfg",
+//               "target/stm32f4x.cfg"
+//             ],
+//             // "preLaunchCommands": [
+//             //     "monitor program ${workspaceFolder}/myprogram.elf verify reset"
+//             // ],
+//             // "internalConsoleOptions": "neverOpen",
+//             "showDevDebugOutput": "raw"
+//         }
+//     ]
+// }

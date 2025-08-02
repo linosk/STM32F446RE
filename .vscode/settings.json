@@ -1,0 +1,4 @@
+{
+    "stm32-for-vscode.openOCDPath": "C:\\OpenOCD\\OpenOCD-20250710-0.12.0\\bin\\openocd.EXE",
+    "makefile.configureOnOpen": false
+}
