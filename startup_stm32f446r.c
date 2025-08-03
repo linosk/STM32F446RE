@@ -7,7 +7,6 @@ extern unsigned int _edata;
 extern unsigned int _bss;
 extern unsigned int _ebss;
 
-
 static void copy_data(void)
 {
     unsigned int *src_data_ptr = &_idata;
@@ -31,6 +30,7 @@ void isr_reset(void)
 {
     copy_data();
     clear_bss();
+    // rcc setting
     main();
     
     while(1);
