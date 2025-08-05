@@ -1,17 +1,14 @@
 #include "rcc.h"
+#include "stm32f446r_registers_map.h"
 
 void rcc_init(void)
 {
-    //RCC_CR
+    //HSI instead of HSE?
+    RCC_CR &= ~RCC_CR_HSION;
+    RCC_CR |= RCC_CR_HSEBYP;
+    RCC_CR |= RCC_CR_HSEON;
+    while(!(RCC_CR & RCC_CR_HSERDY)){}
+    RCC_CR |= RCC_CR_CSSON;
 
-    //setting bypass clock from ST-LINK //18
-    //setting HSE oscillator ON //16
-    //checking if HSE is stable //17
-    //if stable set clock detection //19
-
-    //internaal clock to 0 //0 after reset HSION
-
-    //HSITRIM can be leftt alone
-
-    //PLLON needs to be enabled
+    RCC_CR |= RCC_CR_PLLON;
 }
