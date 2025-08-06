@@ -60,16 +60,18 @@
 #define RCC_CFGR_RTCPRE_2   ((1<<18))
 #define RCC_CFGR_RTCPRE_3   ((1<<19))
 #define RCC_CFGR_RTCPRE_4   ((1<<20))
-#define RCC_MCO1_0          ((1<<21))
-#define RCC_MCO1_1          ((1<<22))
-#define RCC_MCO1_PRE_0      ((1<<24))
-#define RCC_MCO1_PRE_1      ((1<<25))
-#define RCC_MCO1_PRE_2      ((1<<26))
-#define RCC_MCO2_PRE_0      ((1<<27))
-#define RCC_MCO2_PRE_1      ((1<<28))
-#define RCC_MCO2_PRE_2      ((1<<29))
-#define RCC_MCO2_0          ((1<<30))
-#define RCC_MCO2_1          ((1<<31))
+#define RCC_CFGR_MCO1_0     ((1<<21))
+#define RCC_CFGR_MCO1_1     ((1<<22))
+#define RCC_CFGR_MCO1_PRE_0 ((1<<24))
+#define RCC_CFGR_MCO1_PRE_1 ((1<<25))
+#define RCC_CFGR_MCO1_PRE_2 ((1<<26))
+#define RCC_CFGR_MCO2_PRE_0 ((1<<27))
+#define RCC_CFGR_MCO2_PRE_1 ((1<<28))
+#define RCC_CFGR_MCO2_PRE_2 ((1<<29))
+#define RCC_CFGR_MCO2_0     ((1<<30))
+#define RCC_CFGR_MCO2_1     ((1<<31))
+
+#define RCC_APB1ENR_PWREN   ((1<<28))
 
 void rcc_init(void);
 

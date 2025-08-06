@@ -3,12 +3,15 @@
 
 void rcc_init(void)
 {
-    //HSI instead of HSE?
-    RCC_CR &= ~RCC_CR_HSION;
-    RCC_CR |= RCC_CR_HSEBYP;
-    RCC_CR |= RCC_CR_HSEON;
-    while(!(RCC_CR & RCC_CR_HSERDY)){}
-    RCC_CR |= RCC_CR_CSSON;
+    RCC_APB1ENR |= RCC_APB1ENR_PWREN;
 
-    RCC_CR |= RCC_CR_PLLON;
+    RCC_CR |= RCC_CR_HSION;
+    //HSI instead of HSE?
+    // RCC_CR &= ~RCC_CR_HSION;
+    // RCC_CR |= RCC_CR_HSEBYP;
+    // RCC_CR |= RCC_CR_HSEON;
+    // while(!(RCC_CR & RCC_CR_HSERDY)){}
+    // RCC_CR |= RCC_CR_CSSON;
+
+    // RCC_CR |= RCC_CR_PLLON;
 }
