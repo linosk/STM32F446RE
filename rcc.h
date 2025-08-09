@@ -2,6 +2,7 @@
 #define RCC_H
 
 #define RCC_CR_HSION        ((1<<0))
+#define RCC_CR_HSIRDY       ((1<<1))
 #define RCC_CR_HSITRIM_0    ((1<<3))
 #define RCC_CR_HSITRIM_1    ((1<<4))
 #define RCC_CR_HSITRIM_2    ((1<<5))

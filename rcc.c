@@ -1,4 +1,5 @@
 #include "rcc.h"
+#include "flash.h"
 #include "stm32f446r_registers_map.h"
 
 void rcc_init(void)
@@ -6,12 +7,69 @@ void rcc_init(void)
     RCC_APB1ENR |= RCC_APB1ENR_PWREN;
 
     RCC_CR |= RCC_CR_HSION;
-    //HSI instead of HSE?
-    // RCC_CR &= ~RCC_CR_HSION;
-    // RCC_CR |= RCC_CR_HSEBYP;
-    // RCC_CR |= RCC_CR_HSEON;
-    // while(!(RCC_CR & RCC_CR_HSERDY)){}
-    // RCC_CR |= RCC_CR_CSSON;
+    while(!(RCC_CR && RCC_CR_HSIRDY)){}
+    RCC_CR &= ~RCC_CR_HSEON;
+    RCC_CR &= ~RCC_CR_HSITRIM_0;
+    RCC_CR &= ~RCC_CR_HSITRIM_1;
+    RCC_CR &= ~RCC_CR_HSITRIM_2;
+    RCC_CR &= ~RCC_CR_HSITRIM_3;
+    RCC_CR |= RCC_CR_HSITRIM_4;
 
-    // RCC_CR |= RCC_CR_PLLON;
+    //some nice abstraction would be nice - written by a true poet
+    RCC_CR &= ~RCC_CR_PLLON; //disable PLL before configuration
+
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLSRC;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLM_0;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLM_1;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLM_2;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLM_3;
+    RCC_PLLCFGR |= RCC_PLLCFGR_PLLM_4;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLM_5;
+
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLN_0;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLN_1;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLN_2;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLN_3;
+    RCC_PLLCFGR |= RCC_PLLCFGR_PLLN_4;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLN_5;
+    RCC_PLLCFGR |= RCC_PLLCFGR_PLLN_6;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLN_7;
+    RCC_PLLCFGR |= RCC_PLLCFGR_PLLN_8;
+
+    RCC_PLLCFGR |= RCC_PLLCFGR_PLLP_0;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLP_1;
+
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLQ_0;
+    RCC_PLLCFGR |= RCC_PLLCFGR_PLLQ_1;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLQ_2;
+    RCC_PLLCFGR &= ~RCC_PLLCFGR_PLLQ_3;
+
+    RCC_CR |= RCC_CR_PLLON; //enable PLL after configuration
+
+    FLASH_ACR &= ~FLASH_ACR_LATENCY_0;
+    FLASH_ACR |= FLASH_ACR_LATENCY_0;
+    FLASH_ACR &= ~FLASH_ACR_LATENCY_2;
+    FLASH_ACR &= ~FLASH_ACR_LATENCY_3;
+
+    RCC_CFGR |= RCC_CFGR_PPRE1_0;
+    RCC_CFGR |= RCC_CFGR_PPRE1_1;
+    RCC_CFGR |= RCC_CFGR_PPRE1_2;
+
+    RCC_CFGR |= RCC_CFGR_PPRE2_0;
+    RCC_CFGR |= RCC_CFGR_PPRE2_1;
+    RCC_CFGR |= RCC_CFGR_PPRE2_2;
+    
+    RCC_CFGR &= ~RCC_CFGR_HPRE_0;
+    RCC_CFGR &= ~RCC_CFGR_HPRE_1;
+    RCC_CFGR &= ~RCC_CFGR_HPRE_2;
+    RCC_CFGR &= ~RCC_CFGR_HPRE_3;
+
+    RCC_CFGR &= ~RCC_CFGR_SW_0;
+    RCC_CFGR |= RCC_CFGR_SW_1;
+
+    FLASH_ACR &= ~FLASH_ACR_LATENCY_0;
+    FLASH_ACR |= FLASH_ACR_LATENCY_0;
+    FLASH_ACR &= ~FLASH_ACR_LATENCY_2;
+    FLASH_ACR &= ~FLASH_ACR_LATENCY_3;
+    //needs to check whether flach latency is set correctly
 }
